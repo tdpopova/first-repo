@@ -1,0 +1,34 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.Numerics;
+using System.Text;
+
+public class L8_String_Excercises
+{
+    public static void Main()
+    {
+        string[] inputTokens = Console.ReadLine().Split();
+        int @base = int.Parse(inputTokens[0]);//escape key words
+        BigInteger number = BigInteger.Parse(inputTokens[1]);
+        StringBuilder converted = new StringBuilder();
+
+        while (number > 0)
+        {
+            BigInteger remainder = number % @base;
+            converted.Append(remainder);
+
+            number /= @base;
+        }
+
+        //for (int i = converted.Length; i < 0; i++)
+        //{
+        //    Console.WriteLine(converted[i]);
+        //}
+
+        string reverse = string.Join("", converted.ToString().Reverse());
+        Console.WriteLine(reverse);
+        
+
+    }
+}
